@@ -1,13 +1,17 @@
-import "./App.css";
-
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { useState, useRef, useCallback } from "react";
+import { useRef } from "react";
+import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
+import crossIcon from "./images/icon-cross.svg";
 
-import Container from "./Container.js";
-
-const Card = ({ id, text, index, moveCard, complete, toggleCompletion }) => {
+const Card = ({
+  id,
+  text,
+  index,
+  moveCard,
+  isComplete,
+  toggleCompletion,
+  deleteTodo,
+}) => {
   const ref = useRef(null);
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -72,12 +76,13 @@ const Card = ({ id, text, index, moveCard, complete, toggleCompletion }) => {
   return (
     <div>
       <div ref={ref} style={{ opacity }} data-handler-id={handlerId}>
-        <div className="my-2 py-2 flex">
-          <div className="flex items-center">
+        <div className="my-2 py-2 px-8 flex">
+          {/* Checkbox */}
+          <div className="flex items-center mr-4">
             <input
-              className="w-10 h-10 mx-4 grow-0"
+              className="w-8 h-8 grow-0"
               type="radio"
-              value={complete}
+              checked={isComplete}
               onChange={() => {
                 toggleCompletion(id);
               }}
@@ -85,23 +90,33 @@ const Card = ({ id, text, index, moveCard, complete, toggleCompletion }) => {
             />
           </div>
 
-          <label class="flex items-center hover:cursor-pointer" for={id}>
+          {/* Description Text */}
+          <label
+            className="flex items-center hover:cursor-pointer"
+            htmlFor={id}
+          >
             <span>{text}</span>
           </label>
+
+          {/* Delete Icon */}
+          <div className="ml-auto flex justify-center">
+            <button
+              onClick={() => {
+                deleteTodo(id);
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                <path
+                  fill="#494C6B"
+                  d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-function App() {
-  return (
-    <div className="App">
-      <DndProvider backend={HTML5Backend}>
-        <Container />
-      </DndProvider>
-    </div>
-  );
-}
-
-export default App;
+export default Card;
