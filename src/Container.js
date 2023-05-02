@@ -55,6 +55,11 @@ const Container = () => {
       setCards(newCards);
     };
 
+    const clearCompleted = () => {
+      let newCards = cards.filter((card) => !card.complete);
+      setCards(newCards);
+    };
+
     useEffect(() => {
       setNumLeft(countActive(cards));
     });
@@ -124,7 +129,12 @@ const Container = () => {
                     Completed
                   </button>
                 </div>
-                <button className="justify-end">Clear Completed</button>
+                <button
+                  className="justify-end"
+                  onClick={() => clearCompleted()}
+                >
+                  Clear Completed
+                </button>
               </div>
             </div>
           </div>
