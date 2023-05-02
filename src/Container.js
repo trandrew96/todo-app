@@ -64,8 +64,10 @@ const Container = ({ toggleDarkMode, darkMode }) => {
     return (
       <div className="max-w-2xl mx-auto px-6 pt-10">
         {/* HEADER SECTION */}
-        <div className="pt-4 flex">
-          <h1 className="dark:text-white text-4xl">TODO</h1>
+        <div className="pt-4 flex mb-8">
+          <h1 className="text-white dark:text-white text-4xl tracking-widest">
+            TODO
+          </h1>
 
           {/* DARK/LIGHT MODE BUTTON */}
           <button

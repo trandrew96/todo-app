@@ -18,13 +18,17 @@ function App() {
     <div className={`App relative ${darkMode ? "dark" : ""}`}>
       <div className="bg-slate-200 dark:bg-veryDarkBlue min-h-screen">
         {/* background img */}
-        <div className="bg-desktop-light dark:bg-desktop-dark bg-no-repeat h-96 z-1 absolute w-full"></div>
+        <div className="bg-desktop-light dark:bg-desktop-dark bg-no-repeat bg-cover h-72 z-1 absolute w-full"></div>
 
         {/* main container */}
         <div className="z-100 relative">
           <DndProvider backend={HTML5Backend}>
             <Container toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
           </DndProvider>
+        </div>
+
+        <div className="text-center text-gray-500 py-12">
+          <span>Drag and drop to reorder list</span>
         </div>
       </div>
     </div>
