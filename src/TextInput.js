@@ -5,7 +5,6 @@ const TextInput = ({ handleSubmit }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      console.log(`submitting ${text}`);
       handleSubmit(text);
       setText("");
     }

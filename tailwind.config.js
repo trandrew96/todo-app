@@ -10,6 +10,12 @@ module.exports = {
         DarkGrayishBlue: "hsl(234, 11%, 52%)",
         veryDarkGrayishBlue: "hsl(233, 14%, 35%)",
       },
+      backgroundImage: {
+        "desktop-dark": "url('images/bg-desktop-dark.jpg')",
+        "desktop-light": "url('images/bg-desktop-light.jpg')",
+        "desktop-mobile": "url('images/bg-mobile-dark.jpg')",
+        "desktop-mobile": "url('images/bg-mobile-light.jpg')",
+      },
     },
   },
   plugins: [],
