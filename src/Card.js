@@ -89,24 +89,42 @@ const Card = ({
         <div className="my-2 py-2 px-8 flex">
           {/* Checkbox */}
           <div className="flex items-center mr-4">
-            <input
-              className="w-8 h-8 grow-0"
-              type="radio"
-              checked={isComplete}
-              onChange={() => {
-                toggleCompletion(id);
-              }}
-              id={id}
-            />
+            <label
+              className={`w-8 h-8 rounded-full border-lightGrayishBlue dark:border-veryDarkGrayishBlue border-2 flex items-center ${
+                isComplete
+                  ? "bg-gradient-to-br from-sky-300 to-purple-500"
+                  : "bg-transparent"
+              }`}
+            >
+              <svg
+                className={`mx-auto ${isComplete ? "inline-block" : "hidden"}`}
+                xmlns="http://www.w3.org/2000/svg"
+                width="11"
+                height="9"
+              >
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="2"
+                  d="M1 4.304L3.696 7l6-6"
+                />
+              </svg>
+              <input
+                className="w-8 h-8 grow-0 border-transparent hidden"
+                type="radio"
+                checked={isComplete}
+                onChange={() => {
+                  toggleCompletion(id);
+                }}
+                id={id}
+              />
+            </label>
           </div>
 
           {/* Description Text */}
-          <label
-            className="flex items-center hover:cursor-pointer"
-            htmlFor={id}
-          >
+          <div className="flex items-center hover:cursor-pointer">
             <span className={isComplete ? "line-through" : ""}>{text}</span>
-          </label>
+          </div>
 
           {/* Delete Icon */}
           <div className="ml-auto flex justify-center w-8">
