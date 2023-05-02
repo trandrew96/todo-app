@@ -12,9 +12,9 @@ const TextInput = ({ handleSubmit }) => {
   };
 
   return (
-    <div className="flex">
-      <div>
-        <input className="w-10 h-10 mx-4 grow-0" type="radio" disabled />
+    <div className="flex px-8">
+      <div className="">
+        <input className="w-8 h-8 mr-4 grow-0" type="radio" disabled />
       </div>
       <input
         type="text"
