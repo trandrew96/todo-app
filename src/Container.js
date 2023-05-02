@@ -1,12 +1,25 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { TodoData } from "./TodoData.js";
 import Card from "./Card.js";
 import TextInput from "./TextInput.js";
+
+function countActive(tasks) {
+  let numLeft = 0;
+  tasks.forEach((task) => {
+    if (task.complete) {
+      numLeft++;
+    }
+  });
+  console.log(numLeft);
+
+  return numLeft;
+}
 
 const Container = () => {
   {
     const [cards, setCards] = useState(TodoData);
     const [category, setCategory] = useState("ALL");
+    const [numLeft, setNumLeft] = useState(countActive(TodoData));
 
     const addTodo = (text) => {
       let newCards = [
@@ -42,6 +55,10 @@ const Container = () => {
       setCards(newCards);
     };
 
+    useEffect(() => {
+      setNumLeft(countActive(cards));
+    });
+
     return (
       <>
         <div className="bg-slate-200 min-h-screen">
@@ -50,24 +67,35 @@ const Container = () => {
               <TextInput handleSubmit={addTodo} />
             </div>
 
-            {/* TODO List */}
+            {/* Card Section */}
             <div className="mt-5 bg-white rounded-lg divide-y-2 py-1">
-              {cards.map((card, index) => (
-                <Card
-                  key={card.id}
-                  index={index}
-                  id={card.id}
-                  text={card.text}
-                  moveCard={moveCard}
-                  isComplete={card.complete}
-                  toggleCompletion={toggleCompletion}
-                  deleteTodo={deleteTodo}
-                />
-              ))}
+              {/* Filter todos based on active tab */}
+              {cards
+                .filter((card) => {
+                  return category === "ALL"
+                    ? card
+                    : category === "ACTIVE" && !card.complete
+                    ? card
+                    : category === "COMPLETED" && card.complete
+                    ? card
+                    : null;
+                })
+                .map((card, index) => (
+                  <Card
+                    key={card.id}
+                    index={index}
+                    id={card.id}
+                    text={card.text}
+                    moveCard={moveCard}
+                    isComplete={card.complete}
+                    toggleCompletion={toggleCompletion}
+                    deleteTodo={deleteTodo}
+                  />
+                ))}
 
               {/* Bottom Section */}
               <div className="flex px-8 h-16 items-center text-gray-500">
-                <span>5 items left</span>
+                <span>{cards.length - numLeft} items left</span>
                 <div className="mx-auto">
                   <button
                     className={
