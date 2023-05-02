@@ -20,7 +20,7 @@ const Container = () => {
     const [cards, setCards] = useState(TodoData);
     const [category, setCategory] = useState("ALL");
     const [numLeft, setNumLeft] = useState(countActive(TodoData));
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
 
     const addTodo = (text) => {
       let newCards = [

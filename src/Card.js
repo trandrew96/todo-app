@@ -110,7 +110,7 @@ const Card = ({
                 />
               </svg>
               <input
-                className="w-8 h-8 grow-0 border-transparent hidden"
+                className="hidden"
                 type="radio"
                 checked={isComplete}
                 onChange={() => {
