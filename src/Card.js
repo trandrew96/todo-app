@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
-
 import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
-import crossIcon from "./images/icon-cross.svg";
 
 const Card = ({
   id,
