@@ -14,17 +14,31 @@ function countActive(tasks) {
   return numLeft;
 }
 
+const blankRegex = /^\s+$/;
+
 const Container = ({ toggleDarkMode, darkMode }) => {
   const [cards, setCards] = useState(TodoData);
+  const [numCreated, setNumCreated] = useState(cards.length);
   const [category, setCategory] = useState("ALL");
   const [numLeft, setNumLeft] = useState(countActive(TodoData));
 
   const addTodo = (text) => {
+    if (text.length === 0) {
+      return;
+    }
+
+    const arr = text.search(blankRegex);
+    console.log(arr);
+    if (arr === 0) {
+      return;
+    }
+
     let newCards = [
-      { id: cards.length + 1, text: text, complete: false },
+      { id: numCreated + 1, text: text, complete: false },
       ...cards,
     ];
     setCards(newCards);
+    setNumCreated(numCreated + 1);
   };
 
   const toggleCompletion = (id) => {
