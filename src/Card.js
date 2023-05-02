@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
 import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
 import crossIcon from "./images/icon-cross.svg";
@@ -70,12 +71,21 @@ const Card = ({
     }),
   });
 
+  // hover state for cards
+  const [isHovered, setIsHovered] = useState(false);
+
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
   return (
     <div>
-      <div ref={ref} style={{ opacity }} data-handler-id={handlerId}>
+      <div
+        ref={ref}
+        style={{ opacity }}
+        data-handler-id={handlerId}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="my-2 py-2 px-8 flex">
           {/* Checkbox */}
           <div className="flex items-center mr-4">
@@ -99,11 +109,12 @@ const Card = ({
           </label>
 
           {/* Delete Icon */}
-          <div className="ml-auto flex justify-center">
+          <div className="ml-auto flex justify-center w-8">
             <button
               onClick={() => {
                 deleteTodo(id);
               }}
+              className={"inline-block " + (!isHovered ? "md:hidden" : "")}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                 <path
