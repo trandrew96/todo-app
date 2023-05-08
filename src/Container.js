@@ -16,7 +16,17 @@ function countActive(tasks) {
 
 const blankRegex = /^\s+$/;
 
-const Container = ({ toggleDarkMode, darkMode }) => {
+/**
+ * Wrapper component for entire app:
+ * - text input for creating new todos
+ * - list of cards which can be dragged/dropped
+ * - tab buttons for filtering different categories
+ * - "clear completed" button for deleting the todos that are complete
+ *
+ * @param {function} toggleDarkMode hook for toggling between dark/light mode in the app
+ * @return {jsx}
+ */
+const Container = ({ toggleDarkMode }) => {
   const [cards, setCards] = useState(TodoData);
   const [numCreated, setNumCreated] = useState(cards.length);
   const [category, setCategory] = useState("ALL");

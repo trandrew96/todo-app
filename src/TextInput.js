@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Text input field for creating todo's
 const TextInput = ({ handleSubmit }) => {
   const [text, setText] = useState("");
 

@@ -2,6 +2,18 @@ import { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "./ItemTypes.js";
 
+/**
+ * Card (todo) component with drag and drop functionality from react-dnd library
+ *
+ * @param {number} id id for the todo
+ * @param {string} text The power, must be a natural number.
+ * @param {number} index the card's position in the array, which determines the card's position in the list that is displayed on screen
+ * @param {function} moveCard callback function required for drag n drop functionality
+ * @param {boolean} isComplete specifies if the todo is complete
+ * @param {function} toggleCompletion hook that toggles the isComplete state of the todo/card
+ * @param {function} deleteTodo hook for deleting the card/todo from the list
+ * @return {jsx}
+ */
 const Card = ({
   id,
   text,

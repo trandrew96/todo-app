@@ -20,7 +20,7 @@ function App() {
         {/* main container */}
         <div className="z-100 relative">
           <DndProvider backend={HTML5Backend}>
-            <Container toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+            <Container toggleDarkMode={toggleDarkMode} />
           </DndProvider>
         </div>
 
