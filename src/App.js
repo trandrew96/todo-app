@@ -5,7 +5,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Container from "./Container.js";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -15,7 +15,7 @@ function App() {
     <div className={`App relative ${darkMode ? "dark" : ""}`}>
       <div className="bg-slate-200 dark:bg-veryDarkBlue min-h-screen">
         {/* background img */}
-        <div className="bg-desktop-light dark:bg-desktop-dark bg-no-repeat bg-cover h-72 z-1 absolute w-full"></div>
+        <div className="bg-mobile-light dark:bg-mobile-dark md:(dark:bg-desktop-dark bg-desktop-light) bg-no-repeat bg-cover h-72 z-1 absolute w-full"></div>
 
         {/* main container */}
         <div className="z-100 relative">
