@@ -15,7 +15,7 @@ function App() {
     <div className={`App relative ${darkMode ? "dark" : ""}`}>
       <div className="bg-slate-200 dark:bg-veryDarkBlue min-h-screen">
         {/* background img */}
-        <div className="bg-mobile-light dark:bg-mobile-dark md:(dark:bg-desktop-dark bg-desktop-light) bg-no-repeat bg-cover h-72 z-1 absolute w-full"></div>
+        <div className="bg-mobile-light dark:bg-mobile-dark md:dark:bg-desktop-dark md:bg-desktop-light bg-no-repeat bg-cover h-72 z-1 absolute w-full"></div>
 
         {/* main container */}
         <div className="z-100 relative">
