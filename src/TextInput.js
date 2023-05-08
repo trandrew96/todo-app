@@ -11,7 +11,7 @@ const TextInput = ({ handleSubmit }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-veryDarkDesaturatedBlue dark:text-lightGrayishBlue flex px-8 py-4 rounded-lg">
+    <div className="bg-white dark:bg-veryDarkDesaturatedBlue dark:text-lightGrayishBlue flex px-4 sm:px-6 py-4 rounded-lg">
       <div className="mr-4">
         <label
           className={`w-8 h-8 rounded-full border-lightGrayishBlue dark:border-veryDarkGrayishBlue border-2 flex items-center`}

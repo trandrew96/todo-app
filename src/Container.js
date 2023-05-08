@@ -98,6 +98,7 @@ const Container = ({ toggleDarkMode, darkMode }) => {
         </button>
       </div>
 
+      {/* Input Section */}
       <div className="pt-4">
         <TextInput handleSubmit={addTodo} />
       </div>

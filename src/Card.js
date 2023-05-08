@@ -84,9 +84,9 @@ const Card = ({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="my-2 py-2 px-8 flex">
+        <div className="my-2 py-2 px-4 sm:px-6 flex">
           {/* Checkbox */}
-          <div className="flex items-center mr-4">
+          <div className="flex items-center">
             <label
               className={`w-8 h-8 rounded-full border-lightGrayishBlue dark:border-veryDarkGrayishBlue border-2 flex items-center ${
                 isComplete
@@ -115,14 +115,14 @@ const Card = ({
           </div>
 
           {/* Description Text */}
-          <div className="flex items-center hover:cursor-pointer">
+          <div className="flex items-center hover:cursor-pointer grow px-4">
             <span className={isComplete ? "line-through text-gray-500" : ""}>
               {text}
             </span>
           </div>
 
           {/* Delete Icon */}
-          <div className="ml-auto flex justify-center w-8">
+          <div className="ml-auto flex justify-center">
             <button
               onClick={() => {
                 deleteTodo(id);
