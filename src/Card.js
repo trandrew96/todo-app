@@ -116,7 +116,9 @@ const Card = ({
 
           {/* Description Text */}
           <div className="flex items-center hover:cursor-pointer">
-            <span className={isComplete ? "line-through" : ""}>{text}</span>
+            <span className={isComplete ? "line-through text-gray-500" : ""}>
+              {text}
+            </span>
           </div>
 
           {/* Delete Icon */}

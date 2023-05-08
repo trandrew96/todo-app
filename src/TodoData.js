@@ -1,37 +1,32 @@
 export const TodoData = [
   {
     id: 1,
-    text: "Write a cool JS library",
-    complete: false,
+    text: "Complete online JavaScript course",
+    complete: true,
   },
   {
     id: 2,
-    text: "Make it generic enough",
+    text: "Jog around the park 3x",
     complete: false,
   },
   {
     id: 3,
-    text: "Write README",
+    text: "10 minutes meditation",
     complete: false,
   },
   {
     id: 4,
-    text: "Create some examples",
-    complete: true,
+    text: "Read for 1 hour",
+    complete: false,
   },
   {
     id: 5,
-    text: "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
+    text: "Pick up groceries",
     complete: false,
   },
   {
     id: 6,
-    text: "???",
-    complete: false,
-  },
-  {
-    id: 7,
-    text: "PROFIT",
+    text: "Complete Todo App on Frontend Mentor",
     complete: false,
   },
 ];
